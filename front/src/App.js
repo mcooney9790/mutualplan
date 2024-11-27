@@ -35,7 +35,7 @@ function App() {
 // Function to generate PowerPoint and trigger download
 const generatePowerPoint = async () => {
   try {
-    const response = await axios.post("http://localhost:5000/generate-ppt",
+    const response = await axios.post("https://mutualplan-backend.onrender.com/generate-ppt",
       { timeline: timelineItems },
       { responseType: "blob" } // Set response type to blob for file downloads
     );
