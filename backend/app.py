@@ -10,8 +10,7 @@ import os
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app, origins=["*"])
-
+CORS(app, resources={r"/*": {"origins": "https://mutualplan.onrender.com"}})
 
 # Function to create calendar slide for each month
 def create_calendar_slide(prs, year, month, events):
