@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: mutualplan-backend
+    env: python
+    buildCommand: ""
+    startCommand: python app.py
+    region: us
+    envVars:
+      - key: FLASK_ENV
+        value: production
+  - type: static
+    name: mutualplan-frontend
+    env: node
+    buildCommand: npm install && npm run build
+    staticPublishPath: frontend/build

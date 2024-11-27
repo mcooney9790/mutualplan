@@ -7,9 +7,11 @@ import pandas as pd
 import calendar
 from pptx.enum.text import PP_ALIGN
 import os
+from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins=["*"])
+
 
 # Function to create calendar slide for each month
 def create_calendar_slide(prs, year, month, events):
@@ -78,4 +80,4 @@ def generate_ppt():
     return send_file(output_path, as_attachment=True, download_name="timeline_calendar.pptx")
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
